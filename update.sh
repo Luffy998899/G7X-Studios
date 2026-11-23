@@ -15,7 +15,7 @@ git pull --ff-only
 npm ci
 whoami_output=$(npx wrangler whoami 2>&1)
 if [[ $whoami_output == *"not authenticated"* ]]; then
-  npx wrangler login
+  npx wrangler login --device --browser=false
 fi
 domain=$(node -e 'process.stdout.write(JSON.parse(require("node:fs").readFileSync("wrangler.jsonc", "utf8")).routes[0].pattern)')
 export SITE_URL="https://$domain"

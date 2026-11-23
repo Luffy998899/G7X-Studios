@@ -38,7 +38,7 @@ npm run test:smoke
 
 whoami_output=$(npx wrangler whoami 2>&1)
 if [[ $whoami_output == *"not authenticated"* ]]; then
-  npx wrangler login
+  npx wrangler login --device --browser=false
 fi
 
 if [[ ! -f wrangler.jsonc ]]; then
