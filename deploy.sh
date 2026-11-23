@@ -72,7 +72,11 @@ export RESEND_API_KEY="$resend_key" CONTACT_FROM_EMAIL="$from_email" CONTACT_TO_
 node -e 'const fs=require("node:fs"); const names=["RESEND_API_KEY","CONTACT_FROM_EMAIL","CONTACT_TO_EMAIL","ADMIN_PASSWORD","ADMIN_SESSION_SECRET","RATE_LIMIT_SALT"]; fs.writeFileSync(process.argv[1], JSON.stringify(Object.fromEntries(names.map(name => [name, process.env[name]]))), {mode:0o600});' "$secret_file"
 unset resend_key session_secret rate_salt RESEND_API_KEY CONTACT_FROM_EMAIL CONTACT_TO_EMAIL ADMIN_PASSWORD ADMIN_SESSION_SECRET RATE_LIMIT_SALT
 
-npx wrangler deploy --config wrangler.jsonc --secrets-file "$secret_file"
+if ! npx wrangler deploy --config wrangler.jsonc --secrets-file "$secret_file"; then
+  echo "Deployment did not finish. If Cloudflare reported DNS error 100117, remove the existing A, AAAA, or CNAME record for $domain in Cloudflare DNS, then rerun bash deploy.sh." >&2
+  echo "Keep MX and TXT records, including email routing and Resend verification records. The existing D1 database and migrations will be reused." >&2
+  exit 1
+fi
 echo "Private CRM password (save this now): $admin_password"
 unset admin_password
 
