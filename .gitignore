@@ -5,4 +5,10 @@ dist/
 outputs/
 .env*
 .wrangler/
+wrangler.jsonc
+.local/
 *.tsbuildinfo
+.taste-skill/
+.agents/
+artifacts/
+skills-lock.json

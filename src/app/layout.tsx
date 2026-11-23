@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { DM_Sans, Manrope } from "next/font/google";
+import { DM_Mono, DM_Sans, Inter_Tight } from "next/font/google";
+import SectionNavigation from "./section-navigation";
+import { siteUrl } from "./site-url";
 import "./globals.css";
 
+const interTight = Inter_Tight({ subsets: ["latin"], variable: "--font-inter-tight", display: "swap" });
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
+const dmMono = DM_Mono({ subsets: ["latin"], weight: "500", variable: "--font-dm-mono", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "G7X Studios — Websites built to move your business forward",
-  description:
-    "G7X Studios designs and develops thoughtful websites for ambitious businesses. Explore our approach and start your next project.",
+  metadataBase: new URL(siteUrl),
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en" className={`${dmSans.variable} ${manrope.variable}`}>
-      <body>{children}</body>
-    </html>
-  );
+  return <html lang="en" className={`${interTight.variable} ${dmSans.variable} ${dmMono.variable}`} data-type="service"><body><SectionNavigation />{children}</body></html>;
 }

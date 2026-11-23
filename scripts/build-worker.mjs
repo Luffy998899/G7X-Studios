@@ -17,10 +17,20 @@ async function walk(dir) {
   }
 }
 
+if (process.env.SITE_URL) {
+  const siteUrl = new URL(process.env.SITE_URL).origin;
+  for (const name of ["robots.txt", "sitemap.xml"]) {
+    const file = path.join(outDir, name);
+    await writeFile(file, (await readFile(file, "utf8")).replaceAll("https://g7xstudio.com", siteUrl));
+  }
+}
+
 await walk(outDir);
 const source = await readFile(path.join(root, "worker", "index.js"), "utf8");
 await mkdir(path.join(distDir, "server"), { recursive: true });
+await mkdir(path.join(distDir, "cloudflare"), { recursive: true });
 await mkdir(path.join(distDir, ".openai"), { recursive: true });
 await writeFile(path.join(distDir, "server", "index.js"), source.replace("__ASSET_MAP__", JSON.stringify(assets)));
+await writeFile(path.join(distDir, "cloudflare", "index.js"), source.replace("__ASSET_MAP__", "{}"));
 await copyFile(path.join(root, ".openai", "hosting.json"), path.join(distDir, ".openai", "hosting.json"));
 console.log(`Bundled ${Object.keys(assets).length} Next.js static assets into the Sites Worker.`);

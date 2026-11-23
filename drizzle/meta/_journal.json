@@ -8,6 +8,27 @@
       "when": 1795112150489,
       "tag": "0000_lazy_saracen",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1795178090770,
+      "tag": "0001_nifty_marrow",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1795179016399,
+      "tag": "0002_far_hex",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1795457721295,
+      "tag": "0003_secret_captain_britain",
+      "breakpoints": true
     }
   ]
 }
