@@ -6,11 +6,11 @@ Adapted from the technical, content, schema, and agency-planning checks in [Clau
 
 - The local export has one public landing page, a brand title, description, one H1, canonical URL, `ProfessionalService` JSON-LD, `robots.txt`, and a one-page sitemap. `/crm` has a noindex meta tag.
 - The homepage, `/robots.txt`, and `/sitemap.xml` now return HTTP 200 over HTTPS. The earlier Cloudflare 525 blocker is resolved.
-- A public search for `site:g7xstudio.com` returned no results on 24 November 2026. This suggests the new site has not yet been discovered or indexed; confirm the exact status in Search Console URL Inspection. Search Console queries, real traffic, and field Core Web Vitals have not been measured.
+- Search Console URL Inspection confirms `https://g7xstudio.com/` **is indexed** and served over HTTPS. A public search may still favor the similarly named G7 Studios while the new G7X brand builds recognition. Search Console queries, real traffic, and field Core Web Vitals have not been measured.
 
 ## Priority 1 — Make the site crawlable
 
-1. In Search Console, inspect `https://g7xstudio.com/` and check **Page indexing** and **Live test**. If the live test says the page is available to Google, request indexing once. If it reports a blocker, fix that specific blocker first. Check that the submitted sitemap status is **Success**.
+1. The homepage is indexed. Confirm the submitted sitemap status is **Success** and review **Performance → Search results** for branded queries such as `G7X Studios` and `g7xstudio.com`. Do not repeatedly request indexing of an unchanged page.
 2. Verify both apex and `www` over HTTPS; redirect one host to `https://g7xstudio.com/` with a permanent redirect. The homepage, `/robots.txt`, and `/sitemap.xml` already return HTTP 200 over HTTPS. Keep `/crm` out of search.
 3. After deploying changes, verify page source contains the title, description, canonical, H1, and JSON-LD without waiting for JavaScript. Run `npm run build && npm run test:seo` locally before deployment.
 
@@ -29,6 +29,7 @@ Link these pages from the homepage, footer, and each relevant service page. Give
 ## Priority 3 — Trust, performance, and measurement
 
 - Add a short, factual About section or page naming the team and explaining the work process. Keep client testimonials and project claims tied to approval and evidence. Add a privacy notice covering the booking form's phone, email, and message data.
+- Link to `https://g7xstudio.com/` from the studio's real, public business profiles and, where approved, client project credits. Use the exact name **G7X Studios** consistently. Do not create fake profiles or reviews to compete with the unrelated G7 Studios result.
 - Measure the live mobile page in PageSpeed Insights and Search Console. Aim for Google's good thresholds: LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1. The two large homepage PNG assets have been replaced by responsive WebP images locally; deploy and rerun the live audit before choosing the next performance fix.
 - Track monthly Search Console impressions, clicks, queries, indexed pages, and branded versus service queries. Record appointment submissions separately; ranking gains matter only if they bring qualified enquiries.
 - Review the sitemap and schema whenever pages are added. Structured data must match visible content. Do not add FAQ rich-result markup or an `llms.txt` file expecting a Google ranking benefit; Google's AI features use the same core SEO requirements.
