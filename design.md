@@ -6,7 +6,7 @@ G7X is an independent web design and development studio. The page should make th
 
 ## Page system
 
-- **Hero:** warm off-white canvas, three-line headline with deep green emphasis, a direct project action and work link, then a laptop showing the published Formula 19 site. The laptop and stone setting are a generated visual asset in `public/hero-laptop.png`; the screen uses a local capture of the live homepage. Detail labels describe the offer rather than claiming unverified project counts or results.
+- **Hero:** warm off-white canvas, three-line headline with deep green emphasis, a direct project action and work link, then a laptop showing the published Formula 19 site. The laptop and stone setting are a generated visual asset in `public/hero-laptop.webp`, with a smaller mobile variant; the screen uses a local capture of the live homepage. Detail labels describe the offer rather than claiming unverified project counts or results.
 - **Portfolio:** a scroll-dealt deck of three published websites: [Formula 19](https://formula19.ca/), [G7X](https://g7x.in/), and [Misty Meadows Resorts](https://mistymeadowsresorts.com/). Each card uses an actual homepage screenshot and links to the live site. Capture sources are recorded in [`public/projects/README.md`](public/projects/README.md). The deck adapts the supplied React component to this project’s CSS without adding a second styling system.
 - **Services:** three plain-language offers: website design, web development, and enquiry and booking flows.
 - **Words in review:** four draft testimonial quotes supplied by the owner rotate automatically every 6.5 seconds, with manual controls. The section and each card clearly state that client approval is pending; no review markup is used.

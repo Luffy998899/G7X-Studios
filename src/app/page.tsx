@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     siteName: "G7X Studios",
     type: "website",
     locale: "en_IN",
-    images: [{ url: "/hero-laptop.png", width: 1536, height: 1024, alt: "G7X Studios website design preview" }],
+    images: [{ url: "/hero-laptop.webp", width: 1200, height: 800, alt: "G7X Studios website design preview" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/hero-laptop.png"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/hero-laptop.webp"] },
   robots: { index: true, follow: true },
 };
 
@@ -37,7 +37,7 @@ const businessSchema = {
   url: `${siteUrl}/`,
   description,
   email: "contact@g7xstudio.com",
-  image: `${siteUrl}/hero-laptop.png`,
+  image: `${siteUrl}/hero-laptop.webp`,
   serviceType: ["Website design", "Website development"],
 };
 
@@ -72,7 +72,7 @@ export default function Home() {
           <div className="hero-actions"><a className="button button-light" href="#contact">Start your project <ArrowUpRight size={18}/></a><a className="hero-work-link" href="#work"><span><ArrowRight size={18}/></span> Explore our work</a></div>
           <div className="hero-signals" aria-label="What we offer"><div><strong>Design</strong><span>Clear direction</span></div><div><strong>Build</strong><span>Responsive by default</span></div><div><strong>Contact</strong><span>Simple enquiries</span></div></div>
         </div>
-        <div className="hero-art" role="img" aria-label="Laptop showing the live Formula 19 website"><div className="hero-art-disc"/><div className="hero-device"><img className="hero-laptop" src="/hero-laptop.png" alt=""/><div className="hero-screen" aria-hidden="true"><img className="hero-screen-capture" src="/projects/formula19-site.webp" alt=""/></div></div><div className="hero-float hero-float-top"><span>G7X / STUDIO</span><strong>Made for clarity <ArrowUpRight size={17}/></strong></div><div className="hero-float hero-float-side"><span>01 / LIVE PROJECT</span><strong>Formula 19</strong></div></div>
+        <div className="hero-art" role="img" aria-label="Laptop showing the live Formula 19 website"><div className="hero-art-disc"/><div className="hero-device"><picture><source media="(max-width: 760px)" srcSet="/hero-laptop-mobile.webp"/><img className="hero-laptop" src="/hero-laptop.webp" width="1200" height="800" fetchPriority="high" alt=""/></picture><div className="hero-screen" aria-hidden="true"><img className="hero-screen-capture" src="/projects/formula19-site.webp" alt=""/></div></div><div className="hero-float hero-float-top"><span>G7X / STUDIO</span><strong>Made for clarity <ArrowUpRight size={17}/></strong></div><div className="hero-float hero-float-side"><span>01 / LIVE PROJECT</span><strong>Formula 19</strong></div></div>
       </div></section>
 
       <section id="work" className="work-section" aria-labelledby="work-title"><div className="work-intro section-shell"><div className="section-heading"><span className="eyebrow"><Asterisk size={15}/> 01 / SELECTED WORK</span><div><h2 id="work-title">Work you can open.<br/><em>And explore.</em></h2><p>Explore our published website projects for an automotive business, an events platform, and a resort. Each project links to the live site.</p></div></div></div>
